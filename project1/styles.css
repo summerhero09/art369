@@ -1,0 +1,46 @@
+body{
+    font-family: "Domine", serif;
+
+    text-align: center;
+       
+}
+
+h1 {
+
+    font-size: 10vh;
+    margin-block: 5vh;
+
+}
+    
+h2 {
+    font-size: 5vh;
+}
+
+
+h3{
+    font-size:4vh;
+    position: relative;
+    top: -60px;
+    z-index: 3;
+}
+p {
+    font-size: 2vh;
+    margin-block:1vh;
+}
+.entry{
+    font-family: "Noto Serif TC", serif;
+    line-height: 3;
+    font-size: 5vh;
+    display:inline-block;
+    padding-inline: 3vw;
+
+
+}
+#spacedletter{
+    letter-spacing: 5px;
+}
+.chinese{
+    font-weight:bolder;
+    font-size: 12vh;
+    font-family: "Noto Serif TC", serif;
+}
