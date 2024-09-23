@@ -39,6 +39,9 @@ ul {
     font-size: 5vh;
     display:inline-block;
     padding-inline: 3vw;
+    border-style: solid;
+    border-width: 0.5vh;
+    margin-inline: -0.5vh;;
 
 
 }
