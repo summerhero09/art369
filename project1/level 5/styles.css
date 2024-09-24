@@ -95,6 +95,7 @@ ul {
     font-weight:bolder;
     font-size: 12vh;
     font-family: "Noto Serif TC", serif;
+    position: sticky !important;
 }
 
 .mainmenu{
@@ -103,11 +104,11 @@ ul {
 }
 
 .banner {
-    margin-bottom:10vh;
+    padding-bottom:10vh;
     position: relative;
     width: 100%;
-    height: 70vh; /* Set the desired height */
-    overflow: hidden;
+    height: 90vh; /* Set the desired height */
+    overflow: auto;
 }
 
 .banner img {
@@ -125,8 +126,12 @@ ul {
     color: rgb(56, 9, 9);
 }
 .elements{
+    background-position: cover;
     display: flex;
-    margin-inline: 10vw;
+    margin-inline: 5vw;
+
+    padding-block: 10vw;
+    
     
 }
 .memories{
@@ -143,3 +148,14 @@ ul {
     font-size: 8vh;
     font-family: "Noto Serif TC", serif;
 }
+.element{
+    position: relative;
+    background-color:var(--light-blue);
+    transition: transform 0.1s
+   
+
+}
+.element:hover{
+    transform: scale(1.1);
+}
+
