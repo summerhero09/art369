@@ -27,7 +27,7 @@ body{
     transition: 0.5s;
 }
 .entry2:hover{
-    color: var(--dark-orange) !important; 
+    color: var(--english-violet) !important; 
     transition: 0.5s;
 }
 
@@ -87,7 +87,9 @@ ul {
 
 
 }
-
+.entry:hover, .entry2:hover{
+    transform: scale(1.1);
+}
 
 #spacedletter{
     letter-spacing: 5px;
@@ -126,15 +128,7 @@ ul {
     text-align: center;
     color: rgb(56, 9, 9);
 }
-.elements{
-    background-position: cover;
-    display: flex;
-    margin-inline: 5vw;
 
-    padding-block: 10vw;
-    
-    
-}
 .memories{
     display: grid;
 }
@@ -149,14 +143,97 @@ ul {
     font-size: 8vh;
     font-family: "Noto Serif TC", serif;
 }
-.element{
-    position: relative;
+@keyframes wind1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10%, -10%);
+    }
+    50% {
+        transform: translate(20%, 20%);
+    }
+    75% {
+        transform: translate(10%, 10%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+@keyframes rain1 {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    25% {
+        transform: translate(0%, 20%);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(0%, 50%);
+        opacity: 0.6;
+    }
+    75% {
+        transform: translate(0%, 80%);
+        opacity: 0.4;
+    }
+    90% {
+        transform: translate(0, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+.elements{
+    background-position: cover;
+    display: flex;
+    margin-inline: 5vw;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+
+   
+
+    padding-block: 10vw;   
+    padding-inline: 10vw;
+}
+.element1, .element2{
+    opacity: 0.5;
+    position: absolute;
+    transition: ease 1s;
+    padding-block: 5vh;
+    padding-inline: -1vw;
+    margin-inline: 2vh;
+    max-width: 20vw;
+
+}
+.element1{
+    
     background-color:var(--light-blue);
-    transition: transform 0.1s
+    /*transition: transform 1s;*/
+   
+    
+    animation-name:wind1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
    
 
 }
-.element:hover{
+.element2{
+    background-color:var(--dark-purple);
+    color: white;
+    animation-name:rain1;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease; 
+}
+.element1:hover, .element2:hover{
     transform: scale(1.1);
+    opacity: 1.0;
+    animation-play-state: paused;
+
 }
 
