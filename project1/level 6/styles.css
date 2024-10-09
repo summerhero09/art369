@@ -348,6 +348,34 @@ ul {
     animation-iteration-count: infinite;
     animation-timing-function: ease; 
 }
+.element4{
+    position: absolute;
+    clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+    background-color: var(--spring-green);
+    filter: drop-shadow(0 0 5px var(--spring-green));
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh;
+    margin: 2vh;
+    
+    opacity: 0;
+    height: 15vh;
+    width: 15vw;
+    
+    animation-name: wind-roll;
+    animation-duration: 5s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    
+    
+    --current-x: 0;
+    --current-y: 0;
+    transform: translate(var(--current-x), var(--current-y)) rotate(0deg);
+    transition: transform 0.5s ease-in-out; 
+
+}
 .element1:hover, .element2:hover{
     transform: scale(1.1);
     opacity: 1.0;
@@ -361,6 +389,15 @@ ul {
     filter: blur(0);
     animation-play-state: paused;
 }
+.element4:hover {
+    transform: rotate(0deg) translate(var(--current-x), var(--current-y)) !important;
+    opacity: 1.5 !important; /* Smooth transition */
+    animation-play-state: paused;  /* Pause the animation on hover */
+    transition: transform 0.5s ease-in-out; 
+    transition: ease;
+}
+
+
 /*QUERIES*/
 
 @media screen and (max-width:1400px)
@@ -482,5 +519,44 @@ ul {
         opacity: 0;
     }
 }
+@keyframes wind-roll{
+    0% {
+        
+        opacity: 0;
+        transform: translate(0, 0);
+        transform: rotate(0deg);
+        --current-x: 0;
+        --current-y: 0;
+    }
+    25%{
+        --current-x: 130%;
+        --current-y: -120%;
+        transform: translate(130%, -120%) rotate(90deg);;
+        opacity: 50%;
+        
+    }
+    50%{
+        --current-x: 150%;
+        --current-y: -150%;
+        transform: translate(150%, -150%) rotate(180deg);
+        opacity: 100%;
+        
+    }
+    75%{
+        --current-x: 270%;
+        --current-y: -280%;
+        transform: translate(270%, -280%) rotate(270deg);
+        opacity: 50%;
+        
+    }
+    100%{
+        --current-x: 1000%;
+        --current-y: -1000%;
+        transform: translate(1000%, -1000%) rotate(360deg);
+        opacity: 0;
+       
+    }
+}
+
 
 
