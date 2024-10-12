@@ -31,6 +31,12 @@
 /*5*/
 
 --clear-white: #e4fbf5;
+--dead-green: #748b84;
+--soft-green:#a7dcd5
+
+;
+
+
 
 /*6*/
 --corn-yellow: #c5a224;
@@ -120,17 +126,16 @@ ul {
 /*CLASSES*/
 
 .entry, .entry2{
-    opacity: 0.8;
+    opacity: 0.6;
     font-family: "Noto Serif TC", serif;
     line-height: 3;
     font-size: 3.5vh;
     display:inline-block;
     padding-inline: 3vw;
-    border-style: solid;
-    border-width: 0.5vh;
+    
     /*border-color: rgb(128, 128, 244);*/
     border: none;
-
+    filter: blur(1px);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -140,6 +145,7 @@ ul {
 
 }
 .entry:hover, .entry2:hover{
+    filter: blur(0px);
     transform: scale(1.1);
     opacity: 1.0;
     z-index: 5;
@@ -376,6 +382,26 @@ ul {
     transition: transform 0.5s ease-in-out; 
 
 }
+.element5{
+    position: absolute;
+    /*background-color:var(--soft-green);*/
+    height: 15vh;
+    width: 15vw;
+    opacity: 0.0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 2s;
+    padding: 5vh;
+
+   /* animation-name: fadeinout;
+    animation-duration: 5s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+
+    /*animation: fadeinout, 5s, ease, infinite/
+    animation-play-state: play;*/
+}
 .element1:hover, .element2:hover{
     transform: scale(1.1);
     opacity: 1.0;
@@ -395,6 +421,16 @@ ul {
     animation-play-state: paused;  /* Pause the animation on hover */
     transition: transform 0.5s ease-in-out; 
     transition: ease;
+}
+.element5:hover{
+    /*animation-name: fadein;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;*/
+
+    opacity: 1.0 !important;
+    transition: ease;
+    transition: 0.5s;
 }
 
 
@@ -557,6 +593,72 @@ ul {
        
     }
 }
+@keyframes fadeinout{
+    0%{
+        opacity: 0.0;
+    }
+    10%{
+        opacity: 0.1;
+    }
+    30%
+    {
+        opacity: 0;
+    }
+    50%
+    {
+        opacity: 0.1;
+    }
+    65%
+    {
+        opacity: 0.2;
+    }
+    70%
+    {
+        opacity: 0
+    }
+    90%
+    {
+        opacity: 0.2;
+    }
+    100%
+    {
+        opacity: 0;
+    }
 
+}
+
+@keyframes fadein{
+    0%{
+        opacity: 0.0;
+    }
+    10%{
+        opacity: 0.1;
+    }
+    30%
+    {
+        opacity: 0.2;
+    }
+    50%
+    {
+        opacity: 0.3;
+    }
+    65%
+    {
+        opacity: 0.4;
+    }
+    70%
+    {
+        opacity: 0.5;
+    }
+    90%
+    {
+        opacity: 0.8;
+    }
+    100%
+    {
+        opacity: 1.0;
+    }
+
+}
 
 
