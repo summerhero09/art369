@@ -40,6 +40,8 @@
 
 /*6*/
 --corn-yellow: #c5a224;
+--dark-gray: #222329;
+
 /*7*/
 
 --summer-blue: #9bcdd6;
@@ -55,7 +57,7 @@
 
 --heat-orange:#d1a78a;
 /*12*/
---hot-orange:#f6bc6c;
+--hot-orange:#b64c31;
 /*13*/
 /*14*/
 /*15*/
@@ -432,6 +434,21 @@ ul {
     transition: ease;
     transition: 0.5s;
 }
+.element6{
+    position: absolute;
+    background-color:var(--dark-orange);
+    height: 10vh;
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vh;
+
+    animation-name: growth;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 
 
 /*QUERIES*/
@@ -659,6 +676,24 @@ ul {
         opacity: 1.0;
     }
 
+}
+@keyframes growth{
+    0%{
+        transform: scaleY(1.0);
+        opacity: 1.0
+    }
+    25%{
+        transform: scaleY(1.5);
+    }
+    50%{
+        transform: scaleY(2.0);
+    }
+    75%{
+        transform: scaleY(3.0);
+    }
+    100%{
+        opacity: 0.0;
+    }
 }
 
 
