@@ -395,14 +395,6 @@ ul {
     justify-content: center;
     transition: 2s;
     padding: 5vh;
-
-   /* animation-name: fadeinout;
-    animation-duration: 5s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
-
-    /*animation: fadeinout, 5s, ease, infinite/
-    animation-play-state: play;*/
 }
 .element1:hover, .element2:hover{
     transform: scale(1.1);
@@ -437,18 +429,39 @@ ul {
 .element6{
     position: absolute;
     background-color:var(--dark-orange);
-    height: 10vh;
-    width: 5vw;
+    height: 30vh;
+    width: 8vw;
+    font-size: 1.5vh;
+    text-align: center;
+    top: 110vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1vh;
+    text-wrap: wrap;
+    padding: 1vmin;
 
-    animation-name: growth;
-    animation-duration: 10s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+   
+    box-shadow: 0px 3px 10px var(--corn-yellow);
+
+    margin-inline: 5vw;
+
+    overflow: hidden;
+
+    animation: growth 10s ease infinite;
+    
+
+    transform-origin: bottom !important; /* Set the origin of the scale to the bottom */
+    transition: transform 1s; 
+    animation-play-state: running;
+
+    z-index: -1;
 }
+.element6:hover{
+    animation-play-state: paused !important;
+    z-index: 3;
+}
+
+
 
 
 /*QUERIES*/
@@ -679,21 +692,30 @@ ul {
 }
 @keyframes growth{
     0%{
-        transform: scaleY(1.0);
-        opacity: 1.0
+        transform-origin: bottom ;
+    
+        transform: scaleY(0.2);
+        opacity: 1.0;
+        transition: ease;
     }
     25%{
-        transform: scaleY(1.5);
+        transform: scaleY(0.8);
+        opacity: 1.0;
     }
-    50%{
+    30%{
+        transform: scaleY(1.0);
+    }
+    80%{
         transform: scaleY(2.0);
     }
-    75%{
+    90%{
         transform: scaleY(3.0);
+        opacity: 0.8;
     }
     100%{
         opacity: 0.0;
     }
 }
+
 
 
