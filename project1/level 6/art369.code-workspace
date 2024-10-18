@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "art369",
+			"path": "../.."
+		},
+		{
+			"name": "enzo-mari-remix",
+			"path": "../../../../../Downloads/enzo-mari-remix"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "art369"
+	}
+}

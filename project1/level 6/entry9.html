@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <link href="styles.css" rel="stylesheet">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+   
+<title>芒種</title>
+
+
+
+</head>
+
+<body style="background: rgb(249,214,111);
+background: linear-gradient(90deg, rgba(249,214,111,1) 0%, rgba(220,126,44,1) 100%);">
+   <div class="topbar">
+
+      <a href="entry8.html" class="previous">Previous</a>
+
+      <a href="project1.html" class="item">Home</a>
+
+      <a href="entry10.html" class="next">Next</a>
+
+   </div>
+
+   <div class="banner" >
+      
+            <div class="inner" style="color: var(--sand-brown)">
+               
+               <h1> Entry 9: Amiibo</h1>
+               <h3>(Where did they go, I wonder)</h3>
+            
+               <div class="chinese" style="color:var(--bright-scarlet)">芒種</div>
+               <div class="degree">75°</div>               
+            </div>
+   </div>
+
+   <div class="element9" style = "top: 0vh; left: 20vw;"> 
+      These figurines give me special powers in video games
+   </div>
+   <div class="element9" style = "top: 0vh; left: 43vw;"> 
+      But I never got much use out of them
+   </div>
+   <div class="element9" style = "top: 0vh; left: 66vw;"> 
+      It's not like I had a lot of them, they were a rare gift
+   </div>
+
+
+   <script>
+
+      const elements = document.querySelectorAll('.element9');
+      
+      // Function to pause animations
+      function pauseAnimations() {
+         console.log("Pausing animations");
+        elements.forEach((el) => {
+          el.style.animationPlayState = 'paused';
+        });
+      }
+      
+      // Function to resume animations
+      function resumeAnimations() {
+        elements.forEach((el) => {
+          el.style.animationPlayState = 'running';
+        });
+      }
+      
+      // Add event listeners to pause animation on hover
+      elements.forEach((el) => {
+        el.addEventListener('mouseover', pauseAnimations);
+        el.addEventListener('mouseout', resumeAnimations);
+      });
+      
+      
+      
+      </script>
+
+</body>
+
+
+
