@@ -184,8 +184,7 @@ ul {
     font-size: 3.5vh;
     display:inline-block;
     padding-inline: 3vw;
-    
-    /*border-color: rgb(128, 128, 244);*/
+
     border: none;
     filter: blur(1px);
     background-position: center;
@@ -193,8 +192,6 @@ ul {
     background-repeat: no-repeat;
     z-index: 1;
     
-
-
 }
 .entry:hover, .entry2:hover{
     filter: blur(0px);
@@ -282,6 +279,20 @@ ul {
     text-align: center;
     color: rgb(56, 9, 9);
     display: inline-block;
+}
+
+.titles {
+    text-shadow: 1px 1px 5px rgb(255, 255, 255);
+    opacity: 0.5;
+    filter: blur(2px);
+    transition: 0.5s;
+    margin-inline: 20vw;
+
+}
+.titles:hover{
+    opacity:1.0;
+    filter: blur(0px);
+    transition: 0.5s;
 }
 
 .memories{
@@ -526,6 +537,8 @@ ul {
     text-align: center;
     opacity: 0.0;
 
+    top: 80vh;
+
     box-shadow: 0 0 5px 10px var(--light-blue);
 
     animation-name:bubble;
@@ -765,9 +778,11 @@ ul {
   }
   .element15:hover{
     transition:1s;
+    background-color: var(--dark-blue);
     animation-play-state:paused;
     font-size: 150%;
-    color: var(--wheat-beige);
+    color: white;
+    filter:blur(0px);
   }
   .element16{
     opacity: 0.8;
@@ -818,6 +833,7 @@ ul {
     height: 10vh;
     width: 10vw;
     padding: 8vh;
+    font-size: 2vh;
 
     display: flex;
     float:bottom;
