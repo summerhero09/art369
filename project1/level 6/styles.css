@@ -177,9 +177,18 @@ ul {
 
 /*CLASSES*/
 
+.entrychinese{
+    font-family: "Noto Serif TC", serif;
+    font-weight:bolder;
+}
+
 .entry, .entry2{
     opacity: 0.6;
-    font-family: "Noto Serif TC", serif;
+    
+    font-family: "Proza Libre", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
     line-height: 3;
     font-size: 3.5vh;
     display:inline-block;
@@ -901,6 +910,8 @@ ul {
     background-color: rgb(252, 213, 213);
 
     box-shadow: 10px 5px 5px var(--heat-orange);
+    transition: 1s ease;
+    animation-play-state:paused;
 
 }
 .element21{
@@ -953,7 +964,7 @@ ul {
 
     height: 20vh;
     width: 10vw;
-    animation: shiver 1.5s linear infinite;
+    animation: shiver 1s linear infinite;
 
     box-shadow: 0 0 5px 10px var(--frosted-gray);
 }
