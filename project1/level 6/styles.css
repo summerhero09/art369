@@ -368,6 +368,8 @@ ul {
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear; 
+
+    transform: scale(1.0);
    
 
 }
@@ -381,6 +383,7 @@ ul {
     animation-timing-function: ease; 
     transform: scale(1.0);
     opacity: 1.0;
+    transform: scale(1.0);
     
 }
 .element3{
@@ -441,11 +444,15 @@ ul {
     transition: 2s;
     padding: 5vh;
 }
-.element1:hover, .element2:hover{
-    transform: scale(1.1);
+.element1:hover{
     opacity: 1.0;
     animation-play-state: paused;
+    
 
+}
+.element2:hover{
+    animation-play-state: paused;
+    background-color:var(--han-blue);
 }
 .element3:hover{
     transform: scale(1.1);
@@ -491,7 +498,7 @@ ul {
     
 
     transform-origin: bottom !important; /* Set the origin of the scale to the bottom */
-    transition: transform 1s; 
+    transition: 1s; 
     animation-play-state: running;
 
     z-index: 1;
@@ -500,6 +507,8 @@ ul {
     animation-play-state: paused !important;
     z-index: 3;
     opacity: 1.0;
+    transition: 1s;
+    background-color:#cbab7c;
 }
 
 .element7{
@@ -523,10 +532,17 @@ ul {
     animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-timing-function: ease; 
+    filter: blur(1px);
+    transition: 0.2s;
 }
 .element7:hover{
     animation-play-state:paused;
     z-index: 3;
+    transition: 1s;
+    filter: blur(0px);
+    transition: 0.2s;
+    background-color:var(--summer-gold);
+    box-shadow: 0 0 5px 10px var(--summer-gold);
 }
 
 .element8{
@@ -685,11 +701,12 @@ ul {
 
     animation: windmill 2s linear infinite;
   
-    transition: 2s ease;
+    transition: 0.5s ease;
 }
 .element13:hover{
     animation-play-state: paused;
-    transition: 2s ease;
+    transition: 0.5s ease;
+    height: 30%;
 }
 .element14{
   
@@ -709,12 +726,16 @@ ul {
     position: absolute; /* Add position to enable positioning */
     z-index: 1;
     opacity: 0;
+    transition: 1s;
 
     animation: side-fall 5s linear infinite;
     text-shadow: #FC0 1px 0 10px;
   }
   .element14:hover{
     animation-play-state:paused;
+    text-shadow: rgb(0, 89, 255) 1px 0 10px;
+    transition: 1s;
+
   }
 
   .element15{
@@ -730,6 +751,8 @@ ul {
     border-radius:75%;
 
 
+    transition: 1s;
+
     box-shadow: 0 0 20px 10px var(--gray-blue);
 
 
@@ -741,8 +764,10 @@ ul {
     animation: dew 10s linear infinite;
   }
   .element15:hover{
-    transition:4s;
+    transition:1s;
     animation-play-state:paused;
+    font-size: 150%;
+    color: var(--wheat-beige);
   }
   .element16{
     opacity: 0.8;
@@ -763,7 +788,8 @@ ul {
   }
   .element16:hover{
     animation-play-state: paused;
-    transition: 2s ease;
+    transition: 1s ease;
+    border-radius: 50%;
   }
   .element17{
     position: absolute;
