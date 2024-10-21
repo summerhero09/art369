@@ -142,10 +142,12 @@ a:hover{
     text-decoration:none;
     color: var(--ok-blue)!important;
     transition: color 0.5s;
+    transform:scale(1.0);
 }
 .solar:hover{
     color: var(--dark-orange) !important;
     transition: color 0.5s;
+    transform:scale(1.2);
 }
 
 h1 {
