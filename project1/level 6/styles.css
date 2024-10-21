@@ -298,6 +298,8 @@ ul {
     filter: blur(2px);
     transition: 0.5s;
     margin-inline: 20vw;
+    margin-top: 13vh;
+    margin-bottom:10vh;
 
 }
 .titles:hover{
