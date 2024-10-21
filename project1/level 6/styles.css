@@ -12,6 +12,7 @@
 
 /*1*/
 --pond-green: #3f7655;
+--background-green:#b7e2c6;
 
 /*2*/
 --rain-blue:#1d3756;
@@ -101,8 +102,16 @@
 /*21*/
 --gray-white:#4a3f58;
 /*22*/
+--midnight-blue:#090a19;
 /*23*/
+--frosted-gray:#2a414d;
+
 /*24*/
+--cold-brown:#2b2b23;
+--deep-blue:#1d2e35;
+--text-gray:#8e8c67;
+
+
 }
 
 body{
@@ -231,50 +240,29 @@ ul {
 }
 
 .gradient{
-    background: linear-gradient(
-        114deg, 
-        var(--light-blue), 
-        var(--pond-green),
-        var(--rain-blue),
-        var(--dark-green), 
-         var(--bug-green), 
-         var(--gray-green), 
-         var(--white-green), 
-         var(--clear-white), 
-         var(--dead-green), 
-         var(--corn-yellow), 
-         var(--bug-green), 
-         var(--summer-blue),
-          var(--field-gold), 
-          var(--bright-gold), 
-          var(--heat-orange), 
-          var(--hot-orange));
-    background-size: 2000% 2000%;
+    background: linear-gradient(232deg, #b7e2c6, #1d3756, #1f2f20, #6c8f73, #e4fbf5, #c5a224, #f3dbac, #dcbc7c, #fad564, #0a7bc7, #d18a8a, #b64c31, #928e38, #f2f6e1, #e1e9e6, #997d37, #997d37, #7eab95, #5b7966, #b3c9d5, #edf6f3, #4a3f58, #090a19, #2a414d, #2b2b23);
+    background-size: 5000% 5000%;
 
-    -webkit-animation: gradient 59s ease infinite;
-    -moz-animation: gradient 59s ease infinite;
-    animation: gradient 59s ease infinite;
-    display: inline-block;
-
-    
+    -webkit-animation: AnimationName 58s ease infinite;
+    -moz-animation: AnimationName 58s ease infinite;
+    animation: AnimationName 58s ease infinite;
 }
 
-@-webkit-keyframes gradient {
-    0%{background-position:72% 0%}
-    50%{background-position:29% 100%}
-    100%{background-position:72% 0%}
+@-webkit-keyframes AnimationName {
+    0%{background-position:92% 0%}
+    50%{background-position:9% 100%}
+    100%{background-position:92% 0%}
 }
-@-moz-keyframes gradient {
-    0%{background-position:72% 0%}
-    50%{background-position:29% 100%}
-    100%{background-position:72% 0%}
+@-moz-keyframes AnimationName {
+    0%{background-position:92% 0%}
+    50%{background-position:9% 100%}
+    100%{background-position:92% 0%}
 }
-@keyframes gradient {
-    0%{background-position:72% 0%}
-    50%{background-position:29% 100%}
-    100%{background-position:72% 0%}
+@keyframes AnimationName {
+    0%{background-position:92% 0%}
+    50%{background-position:9% 100%}
+    100%{background-position:92% 0%}
 }
-
 
 
 .banner {
@@ -792,6 +780,7 @@ ul {
   }
   .element17:hover{
     animation-play-state:paused;
+    text-shadow: 1px 1px 4px rgb(154, 71, 85);
   }
 
   .element18{
@@ -865,6 +854,7 @@ ul {
 .element20:hover{
     opacity: 0;
     transition: 5s;
+    background-color: rgb(252, 213, 213);
 
     box-shadow: 10px 5px 5px var(--heat-orange);
 
@@ -887,6 +877,66 @@ ul {
     animation-play-state: paused;
 }
 
+.element22{
+    color: #ece2d1;
+    width: 30vh;
+    font-size: 3vh;
+    position: absolute;
+    filter: blur(2px);
+    transition: 0.5s;
+    opacity: 0;
+
+    animation: flicker 15s ease infinite;
+}
+.element22:hover{
+    animation-play-state: paused;
+    
+    font-size: 3.2vh;
+    opacity: 1;
+    filter: blur(0px);
+    transition: 0.5s;
+    
+}
+.element23{
+    color: white;
+    opacity: 0.7;
+    background-color:var(--frosted-gray);
+    position: absolute;
+    transition: 0.5s;
+    padding: 1vh;
+    opacity: 1;
+    transition: 0.5s;
+
+    height: 20vh;
+    width: 10vw;
+    animation: shiver 1.5s linear infinite;
+}
+.element23:hover{
+    filter:blur(2px);
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.element24{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(217, 218, 224);
+    position: absolute;
+    transition: 0.5s;
+    padding: 1vh;
+    height: 30vh;
+    width: 10vw;
+
+    filter:blur(5px);
+
+    animation: solidify 10s ease infinite;
+}
+.element24:hover{
+    height: 10vh;
+    transition: 0.5s;
+
+}
   
 
 
@@ -1486,3 +1536,114 @@ ul {
     100%{
         opacity: 0;
     }}
+
+@keyframes flicker{
+    0%{
+        opacity: 0;
+        translate:(0%,0%);
+    }
+    7%{
+        opacity: 0;
+        
+    }
+    10%{
+        opacity: 1;
+       
+    }
+    13%{
+        opacity: 0;
+       
+    }
+    27%{
+        opacity: 0;
+        translate:(50%, 0%);
+    }
+    30%{
+        opacity: 1;
+    }
+    33%{
+        opacity: 0;
+    }
+
+    57%{
+        opacity: 0;
+        translate:(-50%, 20%);
+    }
+    60%{
+        opacity: 1;
+    }
+    63%{
+        opacity: 0;
+    }
+
+    87%{
+        opacity: 0;
+        translate:(-30%, 10%);
+    }
+    90%{
+        opacity: 1;
+    }
+    93%{
+        opacity: 0;
+    }
+    100%{
+         opacity: 0;
+        translate:(0%,0%);
+        
+    }
+    
+}
+@keyframes shiver{
+    0%{
+        transform: translate(5%,0%);
+    }
+    10%{
+        transform: translate(-5%,0%);
+    }
+    20%{
+        transform: translate(5%,0%);
+    }
+    30%{
+        transform: translate(-5%,0%);
+    }
+    40%{
+        transform: translate(5%,0%);
+    }
+    50%{
+        transform: translate(-5%,0%);
+    }
+    60%{
+        transform: translate(5%,0%);
+    }
+    70%{
+        transform: translate(-5%,0%);
+    }
+    80%{
+        transform: translate(5%,0%);
+    }
+    90%{
+        transform: translate(-5%,0%);
+    }
+    100%{
+        transform: translate(5%,0%);
+    }
+}
+@keyframes solidify{
+    0%{
+        filter:blur(5px);
+        background-color:rgba(85, 85, 130, 0)
+    }
+    50%{
+        filter:blur(2px);
+        background-color:rgba(35, 35, 50, 0.8)
+    }
+    75%{
+        filter:blur(0px);
+        background-color:rgb(114, 135, 134)
+    }
+    95%{
+        filter:blur(0px);
+        background-color:rgb(114, 135, 134)
+    }
+}
+
