@@ -994,6 +994,7 @@ ul {
 .element24:hover{
     width: 20vw;
     transition: 0.5s;
+    animation-play-state:paused;
 
 }
   
