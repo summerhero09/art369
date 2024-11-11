@@ -1,0 +1,58 @@
+<body>
+    <label for="colors">Pick any two colors, any color! </label>
+    <input type="color" value="#FFFFFF" id="color1">
+    <input type="color" value="#FFFFFF" id="color2">
+
+    <p id = 'text'> </p>
+</body>
+
+<script>
+    document.getElementById("color1").onchange = mixColors;
+    document.getElementById("color2").onchange = mixColors;
+
+    function mixColors() {
+        var color1 = document.getElementById("color1").value;
+        var color2 = document.getElementById("color2").value;
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex.slice(1), 16); // slice takes the # off the front, parseInt converts it into base 10
+            var r = (bigint >> 16) & 255; 
+            /*
+            Extracts the red component by shifting the integer 16 bits to the right 
+            and applying a mask to get the lowest 8 bits (255).
+            */
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return [r, g, b];
+        }
+
+        // Convert RGB to hex
+        function rgbToHex(r, g, b) {
+            return (
+                "#" +
+                ((1 << 24) + (r << 16) + (g << 8) + b)
+                    .toString(16)
+                    .slice(1)
+                    .toUpperCase()
+            );
+        }
+
+        // Mix two RGB colors
+        var rgb1 = hexToRgb(color1);
+        var rgb2 = hexToRgb(color2);
+        var mixedColor = [
+            Math.floor((rgb1[0] + rgb2[0]) / 2),
+            Math.floor((rgb1[1] + rgb2[1]) / 2),
+            Math.floor((rgb1[2] + rgb2[2]) / 2),
+        ];
+
+        // Set the background color
+        document.body.style.background = rgbToHex(
+            mixedColor[0],
+            mixedColor[1],
+            mixedColor[2]
+        );
+        document.getElementById("text").innerText = "Color mixed!"
+
+    }
+</script>

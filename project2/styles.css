@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(204, 204, 255);
+    text-align: center;
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+h1{
+    font-size: 8vh;
+}
+
+p{
+    font-size: 5vh;
+}
+
+
+textarea{
+    background-color: rgb(102, 255, 204);
+    width: 80%;
+    height: 7vh;
+    font-size: 3.5vh;
+}
+input{
+    background-color: rgb(255, 204, 204);
+    height: 5vh;
+    width: 80%;
+    font-size: 5vh;
+}

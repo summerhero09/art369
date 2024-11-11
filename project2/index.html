@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+   <link href="styles.css" rel="stylesheet">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+   
+
+</head>
+
+<body>
+
+<div class="commentform">
+    <h1>Leave your comment for Myra!</h1>
+    <br>
+    <br>
+    <form class="commentform" method="post">
+        <p>Name</p> <input id="name" required="required" type="text">
+        <br>
+        <p>Comments: </p><textarea id="comment" name="comments" rows="8" cols="20"></textarea>
+        <button onclick='getText()' type="button" value="hello" name="commentsubmit">Comment!</button>
+   </form>
+<p id = 'demo'> </p>
+
+</div>
+
+
+<script>
+function getText (){
+    var commentText = document.getElementById("comment").value;
+    var name = document.getElementById("name").value;
+
+    if (commentText.trim() === "" || name.trim() === "") {
+        alert("Please enter both name and comment.");
+        return;
+    }
+
+    
+
+    // Create a new paragraph element to hold the comment
+    var newComment = document.createElement("p");
+    newComment.innerHTML = `${name}:${commentText}`;
+
+    var playButton = document.createElement("button");
+    playButton.textContent = "Play Cat Sounds";
+    playButton.onclick = function() {
+        playCat(commentText.length);
+    };
+
+    newComment.appendChild(playButton);
+
+    // Append the new comment to the 'demo' div without erasing previous comments
+    document.getElementById("demo").appendChild(newComment);
+
+    // Clear the comment input area after submission
+    document.getElementById("comment").value = "";
+    document.getElementById("name").value = "";
+}
+function playCat(length){
+    const audio = new Audio('audio/meow.mp3'); // Replace with your actual audio file path
+   
+    for (let i = 0; i < (length / 5); i++) {
+        setTimeout(() => {
+            audio.play();
+        }, i * 500); // Delays each play by 1 second to prevent overlap
+    }
+}
+</script>
+
+</body>
+</html>
+
