@@ -30,10 +30,10 @@
         function rgbToHex(r, g, b) {
             return (
                 "#" +
-                ((1 << 24) + (r << 16) + (g << 8) + b)
-                    .toString(16)
-                    .slice(1)
-                    .toUpperCase()
+                ((1 << 24) + (r << 16) + (g << 8) + b) // shift bitwise
+                    .toString(16) // convert to hexadecimal 
+                    .slice(1) // take off first digit
+                    .toUpperCase() // formatting
             );
         }
 
