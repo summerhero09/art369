@@ -1085,7 +1085,7 @@ ul {
     .topbar{
         font-size: 3vh;
     }
-    element1, .element2, .element3, .element4, .element6, .element11, .element12, .element13, 
+    .element1, .element2, .element3, .element4, .element5, .element6, .element7, .element8, .element9, .element10, .element11, .element12, .element13, 
     .element14, .element15, .element16, .element17, .element18, .element19, .element20, .element21, .element22, .element23, .element24{
         font-size: 1.8vh;
       
@@ -1111,7 +1111,7 @@ ul {
         background-size: cover;
 
     }
-    .element1, .element2, .element3, .element4, .element6, .element11, .element12, .element13, 
+    .element1, .element2, .element3, .element4, .element5, .element6, .element7, .element8, .element9, .element10, .element11, .element12, .element13, 
     .element14, .element15, .element16, .element17, .element18, .element19, .element20, .element21, .element22, .element23, .element24{
         font-size: 1.0vh;
       

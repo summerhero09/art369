@@ -69,17 +69,23 @@
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          form.reset();
-          var formElements = form.querySelector(".form-elements")
-          if (formElements) {
-            formElements.style.display = "none"; // hide form
-          }
-          var thankYouMessage = form.querySelector(".thankyou_message");
-          if (thankYouMessage) {
-            thankYouMessage.style.display = "block";
-          }
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // Redirect to corkboard.html after submission
+        window.location.href = 'corkboard.html';  // Redirect to corkboard.html
+
+        // Commented out code to avoid displaying the thank-you message
+        /*
+        form.reset();
+        var formElements = form.querySelector(".form-elements")
+        if (formElements) {
+          formElements.style.display = "none"; // Hide form
         }
+        var thankYouMessage = form.querySelector(".thankyou_message");
+        if (thankYouMessage) {
+          thankYouMessage.style.display = "block"; // Display thank you message
+        }
+        */
+      }
     };
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {

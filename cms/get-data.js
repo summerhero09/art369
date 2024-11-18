@@ -27,6 +27,8 @@ function handleData(response) {
   response.forEach(function(item) {
     // Create a new <li> element
     var listItem = document.createElement("li");
+    listItem.className = "entry";
+    listItem.style.backgroundColor = randomColor();
 
     // Iterate over the keys of the object
     Object.keys(item).forEach(function(key) {
@@ -43,6 +45,26 @@ function handleData(response) {
     // Append the <li> element to the "sheetData" element
     sheetDataElement.appendChild(listItem);
   });
+}
+function randomColor() {
+
+    var random = Math.random();
+    if (0 < random < 0.25){
+      return "#B3E5FC";
+
+
+    }
+    else if (0.25 < random < 0.5){
+      return "#C1A4A4";
+    }
+    else if (0.5 < random < 0.75){
+      return "#FFF9C4";
+    }
+    else if (0.75 < random < 1.0){
+      return "#FFCDD2";
+    }
+
+
 }
 
 

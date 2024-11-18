@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="contact form example">
+  <title>Demo</title>
+  <link href="styles.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1>Leave a note for Myra!</h1>
+  
+    <!-- change the form action to your script url -->
+    <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+    action="https://script.google.com/macros/s/AKfycbw_NWEx6r7dUNFob6rtxFZlGGwGeRK1rD6fog5Wk7tipR3w7r3Xvu57VWhlJuB3tsKO/exec">
+      
+  
+      <div class="form-elements">
+        <fieldset>
+          <label for="name">Name: </label>
+          <input id="name" name="name" placeholder="Who are you?" />
+        </fieldset>
+  
+        <fieldset>
+          <label for="message">Message: </label>
+          <textarea id="message" name="message" rows="10"
+          placeholder="What would Myra want to know?"></textarea>
+        </fieldset>
+  
+        <fieldset class="honeypot-field">
+          <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+          <input id="honeypot" type="text" name="honeypot" value="" />
+        </fieldset>
+  
+        <button class="button-success pure-button button-xlarge">
+          Submit form
+        </button>
+      </div>
+  
+      <!-- Customise the Thankyou Message People See when they submit the form: -->
+      <div class="thankyou_message" style="display:none;">
+        <h2>Thanks for your submission</h2>
+        <div><a href="corkboard.html">See results</a></div>
+      </div>
+  
+    </form>
+
+
+
+<script data-cfasync="false" src="submit-data.js"></script>
+
+</body>

@@ -19,6 +19,9 @@ label {
 .form-elements {
   border: 1px solid black;
 }
+.entry{
+  
+}
 
 li {
   margin-bottom: 1em;
@@ -26,4 +29,7 @@ li {
 
 .Timestamp {
   display: none;
+}
+.pokemon{
+  color: blue;
 }
