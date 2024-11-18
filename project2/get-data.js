@@ -74,7 +74,16 @@ function handleData(response) {
         if (timeDifference <= 86400000 && timeDifference >= 0) {
           console.log("yay");
           time = true;
-        } else {
+          if (timeDifference <= 1800000 && timeDifference >= 0) {
+            console.log("new");
+            var newMessage = document.createElement("span");  // Create a new <span> element
+            newMessage.textContent = "NEW!";  // Set the text content
+            listItem.appendChild(newMessage);  // Append the <span> to the listItem
+            
+          }
+        } 
+        
+        else {
           console.log("Not within 24 hours");
           time = false;
         }
