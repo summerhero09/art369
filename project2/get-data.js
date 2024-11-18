@@ -81,6 +81,12 @@ function handleData(response) {
             listItem.appendChild(newMessage);  // Append the <span> to the listItem
             
           }
+          if (timeDifference >= 82800000 ) {
+            console.log("danger");
+            var dangerMessage = document.createElement("span");  // Create a new <span> element
+            dangerMessage.textContent = "About to expire!";  // Set the text content
+            listItem.appendChild(dangerMessage);  // Append the <span> to the listItem
+          }
         } 
         
         else {
