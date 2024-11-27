@@ -49,6 +49,11 @@ input{
   justify-content: center;
   align-items: center;
   box-shadow: 10px 5px 5px gray;
+
+  
+}
+.entry:hover{
+  transform: scale(1.1);
 }
 .grid{
   align-items: center;
@@ -69,3 +74,4 @@ input{
 .honeypot-field {
     display: none;
   }
+

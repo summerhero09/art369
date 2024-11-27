@@ -227,10 +227,7 @@ ul {
 
 /*CLASSES*/
 
-.entrychinese{
-    font-family: "Noto Serif TC", serif;
-    font-weight:bolder;
-}
+
 
 .entry, .entry2{
     opacity: 0.6;
@@ -269,6 +266,42 @@ ul {
     transition: 0.5s;
 }
 
+.entrychinese {
+    font-family: "Noto Serif TC", serif;
+    font-weight: bolder;
+    font-size: 4vh;
+    display: inline;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+}
+
+.english {
+    display: inline;
+    opacity: 0; /* Start with English text hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+    position: absolute; /* Position the English text on top of the Chinese text */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to exactly center the element */
+    white-space:nowrap;
+}
+
+.entry2:hover .entrychinese{
+    opacity: 0; /* Fade out Chinese text on hover */
+}
+
+.entry2:hover .english {
+    opacity: 1; /* Fade in English text on hover */
+    color:black;
+}
+.entry:hover .entrychinese{
+    opacity: 0; /* Fade out Chinese text on hover */
+}
+.entry:hover .english {
+    opacity: 1; /* Fade in English text on hover */
+    color:white;
+}
+
 #spacedletter{
     letter-spacing: 5px;
 }
@@ -283,11 +316,11 @@ ul {
     transition: 0.5s;
     position:relative;
 }
-.chinese:hover{
+/*.chinese:hover{
     z-index: 10;
     font-size: 20vh;
     transition: 0.5s;
-}
+}*/
 
 .mainmenu{
     width: 100vw;
