@@ -1,5 +1,6 @@
 var AppScriptUrl = 'https://script.google.com/macros/s/AKfycbw_NWEx6r7dUNFob6rtxFZlGGwGeRK1rD6fog5Wk7tipR3w7r3Xvu57VWhlJuB3tsKO/exec';
 
+
 function getData(url) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -19,6 +20,19 @@ function getData(url) {
   };
   xhr.send();
 }
+
+function getCurrentTimeInNYC() {
+  
+    // Get the current time in NYC as a Date object
+    var nycTime = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
+    
+    // Convert the string back to a Date object
+    var dateObject = new Date(nycTime);
+    console.log("Current time in NYC (as Date object):", dateObject);
+    
+    return dateObject;  // Return the Date object
+}
+
 
 // this function prints the data to the HTML page.
 function handleData(response) {
@@ -55,19 +69,25 @@ function handleData(response) {
         
         // Construct a new Date object (month is 0-based in JavaScript)
         var dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0], timeParts[0], timeParts[1], timeParts[2]);
-        dateObject.setHours(dateObject.getHours() - 5);
+      
 
         console.log("Date object:", dateObject);  // Logs the Date object
 
         // If the date string is in UTC, you can handle it by using the Date object's methods.
         // For example, if it's in UTC, use `toLocaleString` to convert to local time.
-        var localDateObject = new Date(dateObject.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+        
+  
+        var localDateObject = getCurrentTimeInNYC();
         console.log("Local date object:", localDateObject);
+        
 
         var dateObjectTime = localDateObject.getTime();  // Get time in milliseconds
         console.log("Local date object time in milliseconds:", dateObjectTime);
 
-        var timeDifference = currentTime - dateObjectTime;  // Difference in milliseconds
+        var timeStampTime = dateObject.getTime();  // Get time in milliseconds
+        console.log("Timestamp time gotten in milliseconds:", timeStampTime);
+
+        var timeDifference = dateObjectTime - timeStampTime;  // Difference in milliseconds
         console.log("Time difference in milliseconds:", timeDifference);
 
         // Check if the date is within the last 24 hours (24 hours = 86400000 milliseconds)
