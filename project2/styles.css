@@ -75,3 +75,36 @@ input{
     display: none;
   }
 
+  #cat p {
+    position: absolute;
+    top: calc(50% + 150px); /* Adjust position relative to the image */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    text-align: center;
+    font-size: 5vh;
+    color: black;
+  }
+  
+  #cat p.visible {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  #cat img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    width: 80%;
+    height: auto;
+  }
+  
+  #cat img.visible {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+  

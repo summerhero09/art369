@@ -73,14 +73,9 @@ function handleData(response) {
 
         console.log("Date object:", dateObject);  // Logs the Date object
 
-        // If the date string is in UTC, you can handle it by using the Date object's methods.
-        // For example, if it's in UTC, use `toLocaleString` to convert to local time.
-        
-  
         var localDateObject = getCurrentTimeInNYC();
         console.log("Local date object:", localDateObject);
         
-
         var dateObjectTime = localDateObject.getTime();  // Get time in milliseconds
         console.log("Local date object time in milliseconds:", dateObjectTime);
 
@@ -125,7 +120,16 @@ function handleData(response) {
     var playButton = document.createElement("button");
     playButton.textContent = "Play Cat Sounds";
     playButton.onclick = function() {
-        playCat(listItem.innerHTML.length);
+      const messageElement = listItem.querySelector(".message");
+
+      // Get the text content of the message and calculate its length
+      const messageText = messageElement.textContent.trim(); // Remove any extra whitespace
+      
+  
+      console.log("Message text:", messageText);
+      //console.log("Message length:", messageLength);
+  
+      playCat(messageText);
     }
 
   
@@ -160,17 +164,122 @@ function randomColor() {
 
 
 }
+let isPlaying = false;
 
+function playCat(messageText){
 
-function playCat(length){
-  const audio = new Audio('audio/meow.mp3'); // Replace with your actual audio file path
- 
-  for (let i = 0; i < (length / 10); i++) {
-      setTimeout(() => {
-          audio.play();
-      }, i * 500); // Delays each play by 1 second to prevent overlap
+  
+  if (isPlaying) {
+    console.log("Audio is already playing. Please wait.");
+    return;
   }
+   
+  isPlaying = true;
+  
+  var audios = [
+      'audio/meow1.mp3',
+  'audio/meow2.mp3',
+  'audio/meow3.m4a',
+  'audio/meow4.mp3',
+  'audio/meow5.mp3',
+  'audio/meow6.mp3',
+  'audio/meow7.mp3',
+  'audio/meow8.mp3',
+  'audio/meow9.m4a',
+  'audio/meow10.mp3'
+
+  ]
+  function randomAudio(){
+
+    return Math.floor(Math.random() * audios.length);
+  }
+  const randomIndex = randomAudio();
+  const audio = new Audio(audios[randomIndex]); // Select a random audio file
+  const length = messageText.length;
+
+  console.log("Selected audio:", audios[randomIndex]);
+
+  // Determine the total number of plays
+  const isSpecialAudio = [2, 6, 8].includes(randomIndex); // Indices for meow3, meow7, and meow9
+  const totalPlays = isSpecialAudio ? 1 : Math.ceil(length / 10);
+
+  console.log("Will play", totalPlays, "time(s)");
+
+  let playCount = 0; // Counter for the number of times audio has been played
+
+  audio.addEventListener("ended", () => {
+    playCount++;
+    if (playCount < totalPlays) {
+      audio.currentTime = 0; // Reset audio to the start
+      audio.play(); // Play again
+    } else {
+      isPlaying = false; // Reset the flag once all plays are complete
+    }
+  });
+
+  audio.play();
+
+
+  var images = [
+    "<img src='images/cat1.jpg' alt='Random Image'>",
+    "<img src='images/cat2.jpg' alt='Random Image'>",
+    "<img src='images/cat3.jpg' alt='Random Image'>",
+    "<img src='images/cat4.jpg' alt='Random Image'>",
+    "<img src='images/cat5.jpg' alt='Random Image'>",
+    "<img src='images/cat6.jpg' alt='Random Image'>",
+    "<img src='images/cat7.jpg' alt='Random Image'>",
+    "<img src='images/cat8.jpg' alt='Random Image'>",
+  ];
+  
+    function random_image() {
+      return Math.floor(Math.random() * images.length);
+    }
+    
+    function show_random_image() {
+      // Get the container div
+      var catDiv = document.getElementById("cat");
+    
+      // Clear previous images
+      catDiv.innerHTML = "";
+    
+      // Create a new div for the image
+      var newDiv = document.createElement("div");
+    
+      // Set the div's innerHTML to a random image
+      newDiv.innerHTML = images[random_image()];
+      
+      // Get the img element
+      var newImage = newDiv.firstChild;
+
+      var messageTextElement = document.createElement("p");
+      messageTextElement.textContent = messageText; // Assign the messageText to the element
+    
+      // Add the img to the catDiv
+      catDiv.appendChild(newImage);
+      catDiv.appendChild(messageTextElement);
+    
+      // Add the visible class to trigger fade-in
+      requestAnimationFrame(() => {
+        newImage.classList.add("visible");
+        messageTextElement.classList.add("visible");
+      });
+    
+      // Remove the image after 2 seconds
+      setTimeout(() => {
+        newImage.classList.remove("visible");
+        messageTextElement.classList.remove("visible");
+        setTimeout(() => {
+          catDiv.innerHTML = "";
+        }, 2000); // Matches the fade-out duration
+      }, 3000); // Duration to keep the image visible
+
+   
+  }
+  show_random_image();
 }
+
+
+
 
 // Example usage:
 getData(AppScriptUrl);
