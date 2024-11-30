@@ -1,5 +1,33 @@
 var AppScriptUrl = 'https://script.google.com/macros/s/AKfycbw_NWEx6r7dUNFob6rtxFZlGGwGeRK1rD6fog5Wk7tipR3w7r3Xvu57VWhlJuB3tsKO/exec';
 
+// Function to retrieve a value from localStorage and check expiry
+function getWithExpiry(key) {
+  const itemStr = localStorage.getItem(key);
+  if (!itemStr) {
+      return null; // Item does not exist
+  }
+  const item = JSON.parse(itemStr);
+  const now = new Date();
+
+  // If the item has expired, remove it and return null
+  if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key);
+      return null;
+  }
+  return item.value;
+}
+
+// Function to check login status
+function checkLoginStatus() {
+  const currentUser = getWithExpiry("loggedInUser");
+  if (!currentUser) {
+      alert("Session expired or not logged in. Redirecting to login page.");
+      window.location.href = "password.html"; // Redirect to login
+  }
+}
+
+// Check login status when the page loads
+window.onload = checkLoginStatus;
 
 function getData(url) {
   var xhr = new XMLHttpRequest();

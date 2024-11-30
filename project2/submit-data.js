@@ -1,3 +1,32 @@
+// Function to retrieve a value from localStorage and check expiry
+function getWithExpiry(key) {
+  const itemStr = localStorage.getItem(key);
+  if (!itemStr) {
+      return null; // Item does not exist
+  }
+  const item = JSON.parse(itemStr);
+  const now = new Date();
+
+  // If the item has expired, remove it and return null
+  if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key);
+      return null;
+  }
+  return item.value;
+}
+
+// Function to check login status
+function checkLoginStatus() {
+  const currentUser = getWithExpiry("loggedInUser");
+  if (!currentUser) {
+      alert("Session expired or not logged in. Redirecting to login page.");
+      window.location.href = "password.html"; // Redirect to login
+  }
+}
+
+// Check login status when the page loads
+window.onload = checkLoginStatus;
+
 (function() {
   // get all data in form and return object
   function getFormData(form) {
