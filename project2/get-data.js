@@ -280,6 +280,7 @@ function playCat(messageText){
       var newImage = newDiv.firstChild;
 
       var messageTextElement = document.createElement("p");
+      messageTextElement.className = "catmessage";
       messageTextElement.textContent = messageText; // Assign the messageText to the element
     
       // Add the img to the catDiv
