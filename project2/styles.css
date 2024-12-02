@@ -153,6 +153,8 @@ button{
 
   font-size:3vh;
   overflow:hidden;
+
+  
 }
 
 
@@ -504,8 +506,8 @@ button{
   }
 
   .sticky-button{
-    height: 30vh;
-    width:15vw;
+    height: 25vh;
+    width:12vw;
     bottom: 2vh;
     padding:none;
     margin:none;
@@ -535,6 +537,17 @@ button{
   }
   100% {
     transform: rotate(5deg); /* Return to the right at the end */
+  }
+}
+@keyframes bobbing {
+  0%{
+    transform:translate(0%,20%)
+  }
+  50%{
+    transform:translate(0%,0%);
+  }
+  100%{
+    transform:translate(0%,20%)
   }
 }
 
