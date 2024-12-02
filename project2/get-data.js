@@ -1,7 +1,7 @@
 var AppScriptUrl = 'https://script.google.com/macros/s/AKfycbw_NWEx6r7dUNFob6rtxFZlGGwGeRK1rD6fog5Wk7tipR3w7r3Xvu57VWhlJuB3tsKO/exec';
 
 // Function to retrieve a value from localStorage and check expiry
-/*function getWithExpiry(key) {
+function getWithExpiry(key) {
   const itemStr = localStorage.getItem(key);
   if (!itemStr) {
       return null; // Item does not exist
@@ -21,13 +21,37 @@ var AppScriptUrl = 'https://script.google.com/macros/s/AKfycbw_NWEx6r7dUNFob6rtx
 function checkLoginStatus() {
   const currentUser = getWithExpiry("loggedInUser");
   if (!currentUser) {
-      alert("Session expired or not logged in. Redirecting to login page.");
-      window.location.href = "password.html"; // Redirect to login
+      /*alert("Session expired or not logged in. Redirecting to login page.");*/
+
+      var messageTextElement = document.createElement("p");
+      messageTextElement.className = "login";
+      messageTextElement.className = "highlight";
+      messageTextElement.textContent = "Not Logged In";
+
+      var newDiv = document.createElement("div");
+
+      var imgElement = document.createElement("img");
+      imgElement.src = 'images/cat3.jpg';  // Set the source of the image
+      imgElement.alt = 'Random Image';     // Set the alt text for the image
+      
+      imgElement.className="wrongCat";
+
+      // Append the image to the div
+      newDiv.appendChild(imgElement);
+
+      // Append the div to the message text element
+      messageTextElement.appendChild(newDiv);
+      document.body.innerHTML = "";
+      document.body.append(messageTextElement);
+
+      setTimeout(function() {
+        window.location.href = "password.html"; // Redirect to protected page
+    }, 3000); // 2000 milliseconds = 2 seconds
   }
 }
 
 // Check login status when the page loads
-window.onload = checkLoginStatus;*/
+window.onload = checkLoginStatus;
 
 function getData(url) {
   var xhr = new XMLHttpRequest();
@@ -65,10 +89,6 @@ function getCurrentTimeInNYC() {
 // this function prints the data to the HTML page.
 function handleData(response) {
   var sheetDataElement = document.getElementById("sheetData");
-  var currentTime2 = new Date();
-  console.log(currentTime2);
-  var currentTime = new Date().getTime();
-  console.log(currentTime);  // Logs the Date object
 
   var time;
 
@@ -77,10 +97,6 @@ function handleData(response) {
     var listItem = document.createElement("div");
     listItem.className = "entry";
     listItem.style.backgroundColor = randomColor();
-
-    
-      
-  
 
     // Iterate over the keys of the object
     Object.keys(item).forEach(function(key) {
@@ -102,7 +118,6 @@ function handleData(response) {
         // Construct a new Date object (month is 0-based in JavaScript)
         var dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0], timeParts[0], timeParts[1], timeParts[2]);
       
-
         console.log("Date object:", dateObject);  // Logs the Date object
 
         var localDateObject = getCurrentTimeInNYC();
@@ -127,7 +142,6 @@ function handleData(response) {
             newMessage.className = "recent";
             newMessage.textContent = "NEW!";  // Set the text content
             listItem.appendChild(newMessage);  // Append the <span> to the listItem
-            
           }
           if (timeDifference >= 82800000 ) {
             console.log("danger");
@@ -136,8 +150,7 @@ function handleData(response) {
             dangerMessage.textContent = "Expiring!";  // Set the text content
             listItem.appendChild(dangerMessage);  // Append the <span> to the listItem
           }
-        } 
-        
+        }  
         else {
           console.log("Not within 24 hours");
           time = false;
@@ -150,7 +163,6 @@ function handleData(response) {
       listItem.appendChild(divKeyValue);
     });
 
-
     var playButton = document.createElement("button");
     playButton.className = "catbutton";
     playButton.textContent = "Press Cat?";
@@ -160,57 +172,45 @@ function handleData(response) {
       // Get the text content of the message and calculate its length
       const messageText = messageElement.textContent.trim(); // Remove any extra whitespace
       
-  
       console.log("Message text:", messageText);
       //console.log("Message length:", messageLength);
   
       playCat(messageText);
     }
 
-    /*var pinImage = document.createElement("div");
-pinImage.innerHTML = "<img src='images/pin.png' alt='Random Image' class='pin'>";
-listItem.prepend(pinImage);*/
 
-  listItem.appendChild(playButton);
+    listItem.appendChild(playButton);
 
-    // Append the <li> element to the "sheetData" element
-  if (time == true)
-  {
-    sheetDataElement.appendChild(listItem);
-  }
+    if (time == true)
+    {
+      sheetDataElement.appendChild(listItem);
+    }
   
   });
 }
 function randomColor() {
-
-    var random = Math.random();
-    if (0 <= random < 0.25){
-      console.log("random color");
-      return "#B3E5FC";
-      
-
-
-    }
-    else if (0.25 < random < 0.5){
-      console.log("random color");
-      return "#C1A4A4";
-    }
-    else if (0.5 < random < 0.75){
-      console.log("random color");
-      return "#FFF9C4";
-    }
-    else if (0.75 < random <= 1.0){
-      console.log("random color");
-      return "#FFCDD2";
-    }
-
-
+  var random = Math.random();
+  if (random < 0.25) {
+      console.log("random color: green");
+      return "#c1e8de";
+  }
+  else if (random < 0.5) {
+      console.log("random color: yellow");
+      return "#e5ebb2";
+  }
+  else if (random < 0.75) {
+      console.log("random color: red");
+      return "#e8c8c1";
+  }
+  else {
+      console.log("random color: blue");
+      return "#c5d4e8";
+  }
 }
 let isPlaying = false;
 
 function playCat(messageText){
 
-  
   if (isPlaying) {
     console.log("Audio is already playing. Please wait.");
     return;
@@ -232,7 +232,6 @@ function playCat(messageText){
 
   ]
   function randomAudio(){
-
     return Math.floor(Math.random() * audios.length);
   }
   const randomIndex = randomAudio();
@@ -260,7 +259,6 @@ function playCat(messageText){
   });
 
   audio.play();
-
 
   var images = [
     "<img src='images/cat1.jpg' alt='Random Image'>",
@@ -313,57 +311,13 @@ function playCat(messageText){
         messageTextElement.classList.remove("visible");
         setTimeout(() => {
           catDiv.innerHTML = "";
-        }, 2000); // Matches the fade-out duration
-      }, 3000); // Duration to keep the image visible
-
-   
+        }, 3000); // Matches the fade-out duration
+      }, 4000); // Duration to keep the image visible
   }
   show_random_image();
 }
 
-
-
-
 // Example usage:
 getData(AppScriptUrl);
 
-/*function getText (){
-  var commentText = document.getElementById("comment").value;
-  var name = document.getElementById("name").value;
 
-  if (commentText.trim() === "" || name.trim() === "") {
-      alert("Please enter both name and comment.");
-      return;
-  }
-
-  
-
-  // Create a new paragraph element to hold the comment
-  var newComment = document.createElement("p");
-  newComment.innerHTML = `${name}:${commentText}`;
-
-  var playButton = document.createElement("button");
-  playButton.textContent = "Play Cat Sounds";
-  playButton.onclick = function() {
-      playCat(commentText.length);
-  };
-
-  newComment.appendChild(playButton);
-
-  // Append the new comment to the 'demo' div without erasing previous comments
-  document.getElementById("demo").appendChild(newComment);
-
-  // Clear the comment input area after submission
-  document.getElementById("comment").value = "";
-  document.getElementById("name").value = "";
-}
-function playCat(length){
-  const audio = new Audio('audio/meow.mp3'); // Replace with your actual audio file path
- 
-  for (let i = 0; i < (length / 5); i++) {
-      setTimeout(() => {
-          audio.play();
-      }, i * 500); // Delays each play by 1 second to prevent overlap
-  }
-}
-</script>*/

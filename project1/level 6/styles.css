@@ -256,6 +256,10 @@ ul {
     z-index: 5;
 }
 
+.entry:hover{
+    color:white !important;
+}
+
 .entry2 {
     color: black !important; /* Force black color with !important */
     text-decoration: none;
@@ -264,6 +268,7 @@ ul {
 .entry2:hover{
     color: var(--english-violet) !important; 
     transition: 0.5s;
+    color:black !important;
 }
 
 .entrychinese {

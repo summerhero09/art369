@@ -19,8 +19,32 @@ function getWithExpiry(key) {
 function checkLoginStatus() {
   const currentUser = getWithExpiry("loggedInUser");
   if (!currentUser) {
-      alert("Session expired or not logged in. Redirecting to login page.");
-      window.location.href = "password.html"; // Redirect to login
+     /*alert("Session expired or not logged in. Redirecting to login page.");*/
+
+     var messageTextElement = document.createElement("p");
+     messageTextElement.className = "login";
+     messageTextElement.className = "highlight";
+     messageTextElement.textContent = "Not Logged In";
+
+     var newDiv = document.createElement("div");
+
+     var imgElement = document.createElement("img");
+     imgElement.src = 'images/cat3.jpg';  // Set the source of the image
+     imgElement.alt = 'Random Image';     // Set the alt text for the image
+     
+     imgElement.className="wrongCat";
+
+     // Append the image to the div
+     newDiv.appendChild(imgElement);
+
+     // Append the div to the message text element
+     messageTextElement.appendChild(newDiv);
+     document.body.innerHTML = "";
+     document.body.append(messageTextElement);
+
+     setTimeout(function() {
+       window.location.href = "password.html"; // Redirect to protected page
+   }, 3000); // 2000 milliseconds = 2 seconds
   }
 }
 

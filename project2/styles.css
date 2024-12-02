@@ -155,9 +155,7 @@ button{
   overflow:hidden;
 }
 
-#passwordheading{
- 
-}
+
 .wrong{
   text-decoration: underline;
   text-decoration-color: red;
@@ -169,6 +167,15 @@ button{
 .wrongCat{
   width: 50vw;
   height:auto;
+}
+.login{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  text-decoration: underline;
+  text-decoration-color: red;
+  
 }
 
 
@@ -340,8 +347,8 @@ button{
   background-attachment: fixed; /* Keeps the background fixed when scrolling */
   opacity:0.8;
 
-  height: 30vh;
-  width:50vw;
+  height: 18vh;
+  width:35vw;
   
   font-size: 1rem; /* Font size */
   border: none; /* Remove default border */
@@ -375,7 +382,8 @@ button{
     opacity: 0;
    /* transition: opacity 1s ease-in-out;*/
     text-align: center;
-    font-size: 5vh;
+    font-size: 3vh;
+    padding:1vh;
     color: black;
     z-index: 5;
 
@@ -468,7 +476,15 @@ button{
 
 @media (min-width: 800px) {
 
-
+  h1{
+    font-size:10vh;
+  }
+  .inputfield#name{
+    width:10vw !important;
+  }
+  .inputfield#message{
+    width:20vw !important;
+  }
 
   .grid{
     margin: 5vw;
@@ -477,17 +493,18 @@ button{
   }
 
   .entry{
-    
-    
     font-size: 4vh;
   }
 
   .catbutton{
     width:10vw;
   }
+  button{
+    color: #14110a;
+  }
 
   .sticky-button{
-    height: 20vh;
+    height: 30vh;
     width:15vw;
     bottom: 2vh;
     padding:none;
