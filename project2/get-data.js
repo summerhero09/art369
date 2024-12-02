@@ -1,7 +1,7 @@
 var AppScriptUrl = 'https://script.google.com/macros/s/AKfycbw_NWEx6r7dUNFob6rtxFZlGGwGeRK1rD6fog5Wk7tipR3w7r3Xvu57VWhlJuB3tsKO/exec';
 
 // Function to retrieve a value from localStorage and check expiry
-function getWithExpiry(key) {
+/*function getWithExpiry(key) {
   const itemStr = localStorage.getItem(key);
   if (!itemStr) {
       return null; // Item does not exist
@@ -27,7 +27,7 @@ function checkLoginStatus() {
 }
 
 // Check login status when the page loads
-window.onload = checkLoginStatus;
+window.onload = checkLoginStatus;*/
 
 function getData(url) {
   var xhr = new XMLHttpRequest();
@@ -77,12 +77,16 @@ function handleData(response) {
     var listItem = document.createElement("div");
     listItem.className = "entry";
     listItem.style.backgroundColor = randomColor();
+
+    
+      
   
 
     // Iterate over the keys of the object
     Object.keys(item).forEach(function(key) {
       // Create a new <div> element for each key-value pair
       var divKeyValue = document.createElement("div");
+      divKeyValue.style.backgroundColor = listItem.style.backgroundColor;
       // Set class name as the key
       divKeyValue.className = key;    
       console.log("Timestamp found:", key);
@@ -120,6 +124,7 @@ function handleData(response) {
           if (timeDifference <= 1800000 && timeDifference >= 0) {
             console.log("new");
             var newMessage = document.createElement("span");  // Create a new <span> element
+            newMessage.className = "recent";
             newMessage.textContent = "NEW!";  // Set the text content
             listItem.appendChild(newMessage);  // Append the <span> to the listItem
             
@@ -127,7 +132,8 @@ function handleData(response) {
           if (timeDifference >= 82800000 ) {
             console.log("danger");
             var dangerMessage = document.createElement("span");  // Create a new <span> element
-            dangerMessage.textContent = "About to expire!";  // Set the text content
+            dangerMessage.className="danger";
+            dangerMessage.textContent = "Expiring!";  // Set the text content
             listItem.appendChild(dangerMessage);  // Append the <span> to the listItem
           }
         } 
@@ -146,7 +152,8 @@ function handleData(response) {
 
 
     var playButton = document.createElement("button");
-    playButton.textContent = "Play Cat Sounds";
+    playButton.className = "catbutton";
+    playButton.textContent = "Press Cat?";
     playButton.onclick = function() {
       const messageElement = listItem.querySelector(".message");
 
@@ -160,7 +167,9 @@ function handleData(response) {
       playCat(messageText);
     }
 
-  
+    /*var pinImage = document.createElement("div");
+pinImage.innerHTML = "<img src='images/pin.png' alt='Random Image' class='pin'>";
+listItem.prepend(pinImage);*/
 
   listItem.appendChild(playButton);
 
@@ -175,18 +184,23 @@ function handleData(response) {
 function randomColor() {
 
     var random = Math.random();
-    if (0 < random < 0.25){
+    if (0 <= random < 0.25){
+      console.log("random color");
       return "#B3E5FC";
+      
 
 
     }
     else if (0.25 < random < 0.5){
+      console.log("random color");
       return "#C1A4A4";
     }
     else if (0.5 < random < 0.75){
+      console.log("random color");
       return "#FFF9C4";
     }
-    else if (0.75 < random < 1.0){
+    else if (0.75 < random <= 1.0){
+      console.log("random color");
       return "#FFCDD2";
     }
 

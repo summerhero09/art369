@@ -1,5 +1,4 @@
 body{
-    background-color: rgb(204, 204, 255);
     text-align: center;
     font-family: "Gamja Flower", sans-serif;
     font-weight: 400;
@@ -9,67 +8,355 @@ body{
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-attachment: fixed; /* Keeps the background fixed when scrolling */
+
+    -webkit-tap-highlight-color: transparent;
   }
- d
+
+/*General*/
 
 h1{
-    font-size: 8vh;
+  font-size: 6vh;
+  padding:none;
 }
 
+.highlight {
+  background-color: rgb(236, 236, 145, 0.8); /* Highlight color */
+  padding: 0 0.2rem; /* Optional: Adjust space around the text */
+  border-radius: 0.25rem; 
+}
+
+
 p{
-    font-size: 5vh;
+  font-size: 5vh;
 }
 
 fieldset {
-  border: none;
+border: none;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 textarea{
-    background-color: rgb(102, 255, 204);
-    width: 80%;
-    height: 7vh;
-    font-size: 3.5vh;
-    font-family: "Gamja Flower", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  background-color: rgb(102, 255, 204);
+  /*width: 80%;
+  height: 7vh;*/
+  font-size: 3.5vh;
+  font-family: "Gamja Flower", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
 }
 input{
-    background-color: rgb(255, 204, 204);
-    height: 5vh;
-    width: 80%;
-    font-size: 5vh;
-    font-family: "Gamja Flower", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  background-color: rgb(255, 204, 204);
+  height: 5vh;
+  /*width: 80%;*/
+  font-size: 5vh;
+  font-family: "Gamja Flower", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
+
+button{
+    align-self: center;
+    background-color: #efb292;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #14110a;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    /*transition: all 235ms ease-in-out;*/
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    position:relative;
+  
+    font-size: 3.5vh;
+      font-family: "Gamja Flower", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+  }
+  
+  button:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+  
+  button:focus{
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  }
+  
+ 
+  
+
+/*Password Screen*/
+ 
+.screen{
+  height:100vh;
+  display: flex; /* Enable flexbox on the body */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex-direction: column; /* Stack items in a vertical column */
+
+  overflow:hidden;
+  
+  
+  background-image: url(images/sketch.jpeg);
+
+
+  background-size:cover;
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the background fixed when scrolling */
+
+}
+
+.inputfield{
+  margin-bottom: 2vh;
+
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  /*transition: all 235ms ease-in-out;*/
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+
+  font-size:3vh;
+  overflow:hidden;
+}
+
+#passwordheading{
+ 
+}
+.wrong{
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+.right{
+  text-decoration: underline;
+  text-decoration-color: rgb(0, 255, 64);
+}
+.wrongCat{
+  width: 50vw;
+  height:auto;
+}
+
+
+
+/*Corkboard Screen*/
+
+
+
 
 .entry{
   
+  position: relative;
   width: 100%; /* Let the grid control the width */
-  height: 5rem; /* Fixed height for each entry */
-  padding: 1rem; /* Reduced padding for a better fit */
   
+  padding: 1rem; /* Reduced padding for a better fit */
+  display: inline;
   
   justify-content: center;
   align-items: center;
-  box-shadow: 10px 5px 5px gray;
+  /*box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;*/
+  font-size: 2.5vh;
+
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 4px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #13110c;
+  cursor: pointer;
+
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+
+  transform-origin: center center;
+
+  animation: 5s idle 1s infinite
+
+  
 
   
 }
-.entry:hover{
-  transform: scale(1.1);
+/*.entry:hover{
+  transform: rotate(30deg);
+}*/
+.catbutton{
+  background-color: #fefdfc;
+  position:absolute;
+  width: 20vw;
+  height: auto;
+  font-size:2vh;
+  text-align:center;
+
+ 
+  z-index: 1; /* Ensure it overlaps the .entry background */
+
+  
+
 }
+.catbutton::before,
+.catbutton::after {
+    content: '';
+    position: absolute;
+    top: -10px; /* Position above the button */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* Create triangle by making the borders transparent */
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffffff; /* Color matching the button background */
+}
+
+.catbutton::before {
+    left: 10%; /* Position the first ear to the left */
+    top: -8px;
+}
+
+.catbutton::after {
+    right: 10%; /* Position the second ear to the right */
+}
+.name{
+  position:absolute;
+  background-color: white;
+  top: -5vh;
+  left: -2vw;
+  padding: 1vh;
+  font-size: 3vh;
+
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+
+  overflow-wrap: break-word;
+}
+
+
+
 .grid{
   align-items: center;
   display: grid; /* Correct grid display */
-  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr)); /* Automatically adjusts column size */
-  gap: 5rem; /* Adds space between the items */
-  padding: 1rem; /* Padding around the grid */
+  grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr)); /* Automatically adjusts column size */
+  gap: 18vw; 
+  padding: 0.5vw; 
+  box-sizing: border-box; 
+  /*max-width: 100%; 
+  overflow-x: hidden; */
+  margin: 0 auto; /* Center the grid */
+  /*padding: 0; /* Avoid extra space */
   
 }
 
 
+.recent {
+  width: 10vw; /* Set the width of the circle */
+  height: 5vh; /* Set the height of the circle (same as width for a perfect circle) */
+  border-radius: 50%; /* Makes it a circle */
+  border: 4px solid #141e25; /* Adds a border with desired thickness and color */
+  background-color: #8cd9ec; /* Circle's fill color */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for effect */
+  position:absolute;
+  top:-3vh;
+  right:-1vw;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+
+}
+
+.danger {
+  width: 80%; /* Set the width of the circle */
+  height: 5vh; /* Set the height of the circle (same as width for a perfect circle) */
+  border-radius: 50%; /* Makes it a circle */
+  border: 4px solid #141e25; /* Adds a border with desired thickness and color */
+  background-color: rgb(218, 169, 79); /* Circle's fill color */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for effect */
+  position:absolute;
+  top:-3vh;
+  right:-1vw;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+
+}
+
+.sticky-button {
+  position: fixed; /* Fixed position ensures it stays in place */
+  bottom: 2vh; /* Distance from the bottom of the screen */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for the button's width */
+  padding: 0.75rem 1.5rem; /* Add some padding */
+  background-color: transparent;
+  background-image:url(images/pencil.png);
+  background-size: cover; /* Scales the image to cover the entire viewport */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the background fixed when scrolling */
+  opacity:0.8;
+
+  height: 30vh;
+  width:50vw;
+  
+  font-size: 1rem; /* Font size */
+  border: none; /* Remove default border */
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: none;
+  cursor: pointer; /* Pointer cursor on hover */
+  z-index: 3; /* Ensure it appears above other elements */
+  transform-origin: center center;
+}
+
+.sticky-button:hover {
+  transform: translateX(-50%) rotate(30deg);
+  box-shadow: none;
+  opacity:1.0;
+}
 
 
 .Timestamp {
@@ -86,15 +373,33 @@ input{
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+   /* transition: opacity 1s ease-in-out;*/
     text-align: center;
     font-size: 5vh;
     color: black;
+    z-index: 5;
+
+    background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+
+  overflow-wrap: break-word;
   }
   
   #cat p.visible {
     opacity: 1;
-    transition: opacity 1s ease-in-out;
+    /*transition: opacity 1s ease-in-out;*/
   }
 
   #cat img {
@@ -103,18 +408,116 @@ input{
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: opacity 1s ease-in-out;
-    width: 80%;
+    /*transition: opacity 1s ease-in-out;*/
+    width: 60%;
     height: auto;
+    z-index:5;
+
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
   }
   
   #cat img.visible {
     opacity: 1;
-    transition: opacity 1s ease-in-out;
+    /*transition: opacity 1s ease-in-out;*/
   }
 
   .catmessage{
     font-size: 10vh;
     background-color:white;
   }
+
   
+/*Note Screen*/
+
+#arrow{
+  width: 30vw;
+  height:auto;
+  position:absolute;
+  top:40vw;
+  margin:none;
+  padding:none;
+}
+
+.inputfield#message{
+  height: 10vh;
+  width:85vw 
+}
+
+.inputfield#name{
+  height: 5vh;
+  width:50vw 
+}
+
+.sticky-button#note{
+  bottom: 3vh !important;/* Distance from the bottom of the screen */
+  background-image:url(images/sticky.png) !important;
+}
+
+/*Queries*/
+
+@media (min-width: 800px) {
+
+
+
+  .grid{
+    margin: 5vw;
+    grid-template-columns: repeat(auto-fill, minmax(18vw, 1fr));
+    gap:8vw;
+  }
+
+  .entry{
+    
+    
+    font-size: 4vh;
+  }
+
+  .catbutton{
+    width:10vw;
+  }
+
+  .sticky-button{
+    height: 20vh;
+    width:15vw;
+    bottom: 2vh;
+    padding:none;
+    margin:none;
+  }
+
+  .screen#note{
+    background-repeat:repeat !important;
+    background-size:contain;
+  }
+    
+  .wrongCat{
+    width: 20vw;
+    height:auto;
+  }
+
+
+}
+
+/*animations*/
+
+@keyframes idle {
+  0% {
+    transform: rotate(5deg); /* Start by tilting to the right */
+  }
+  50% {
+    transform: rotate(-5deg); /* Tilt to the left at the halfway point */
+  }
+  100% {
+    transform: rotate(5deg); /* Return to the right at the end */
+  }
+}
+
