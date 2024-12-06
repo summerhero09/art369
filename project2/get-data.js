@@ -53,6 +53,30 @@ function checkLoginStatus() {
 // Check login status when the page loads
 window.onload = checkLoginStatus;
 
+var pressed = false;
+
+function animationPause(){
+  var notes = document.querySelectorAll(".entry");
+    console.log("called");
+  if (pressed == false)
+  {
+    notes.forEach(note => {
+        note.style.animationPlayState = "paused";
+        
+    });
+    pressed = true;
+  }
+  else
+  {
+    notes.forEach(note => {
+      note.style.animationPlayState = "running";
+      
+  });
+  pressed = false;
+  
+}
+}
+
 function getData(url) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
