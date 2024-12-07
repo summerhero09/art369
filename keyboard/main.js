@@ -2,48 +2,89 @@ window.onload = function () {
   show_image(0);
 };
 index = 0;
-var arr = new Array(10).fill(0);
+var scores = new Array(10).fill(0);
+var done = false;
 
 document.body.onkeydown = function(keypress_event){
 
-  if (index >= 10)
+  var new_element = document.getElementById("key_display");
+  new_element.innerHTML = "";
+  
+
+  
+
+  if (done == true)
   {
-    // call bracket function here
+    console.log("entered true");
+    var imageDiv = document.getElementById("image");
+    imageDiv.innerHTML = "";
+    new_element.innerHTML = "";
+    return;
   }
+  else if (done == false)
+  {
+    /*var imageDiv = document.getElementById("image");
+    imageDiv.innerHTML = "";*/
+    new_element.innerHTML = "";
+
+    var key = keypress_event.key;
+    var number = Number(key);
+    console.log(number);
+
+    if (index >= 9)
+    {
+
+      var imageDiv = document.getElementById("image");
+      imageDiv.innerHTML = "";
+
+      var inst = document.getElementById("inst");
+      inst.innerHTML = "";1
+      
+      var des_element = document.getElementById("description");
+      des_element.innerHTML = "Your Favorite Pokemon!";
   
+      let results = search_array(scores);
+      for (let i = 0; i < results.length; i++) {
+        console.log(results[i]);
+        var final = document.getElementById("final");
+        var newDiv = document.createElement("div");
   
-  var key = keypress_event.key;
-  //document.getElementById("key_display").innerHTML = key;
+        // Set the div's innerHTML to a random image
+        newDiv.innerHTML = images[results[i]];
+        final.append(newDiv);
+        console.log("appended final images");
 
-  var number = Number(key);
-  console.log(number);
-
-  var new_element = document.createElement("h1");
-  
-
-  
-  // turn key into number -> if number 
-  // do values, and then respond adequately, and then change the image
-
-  if (key <= 2) {
-    new_element.innerHTML = "really? that low?";
-    document.body.style.backgroundColor = "pink";
-    scores[index] = key;
-    index += 1;
-
-    show_image(index);
+      }
+      done = true;
+      
+    }
+    else 
+    {
+      if (key <= 5) {
+        new_element.innerHTML = "really? that low?";
+        document.body.style.backgroundColor = "pink";
+        scores[index] = key;
+        index += 1;
     
-  } else if (key == "g") {
-    new_element.innerHTML = key;
-
-    document.body.style.backgroundColor = "orange";
-  } else {
-    //new_element.innerHTML = key;
-
-    document.body.style.backgroundColor = "rgb(255, 255, 255)";
+        show_image(index);
+        
+      } else if (key <= 10) {
+        new_element.innerHTML = "what a high score!";
+        scores[index] = key;
+        index += 1;
+    
+        document.body.style.backgroundColor = "orange";
+    
+        show_image(index);
+      } else {
+        
+        new_element.innerHTML = "Must input a number!";
+      }
+    }
+     
+    
   }
-  /*document.body.append(new_element);*/
-
+  
 
 };
 
@@ -79,19 +120,28 @@ function show_image(index) {
   console.log("append image");
 }
 
-function search_array{
+function search_array(array) {
+  let valueToIndices = {}; // Map to store indices for each value
+  let highestValue = -Infinity; // Start with the smallest possible value
+  let resultIndexes = []; // To store the final result
 
-  var indexes = [];
-  
-  // Loop through the array and find matching values
-  for (let j = 0; j < array.length; j++) {
-    value = array[j];
-    for (let i = j + 1; i < array.length; i++) {
-      if (array[i] === value) {
-        indexes.push(i); // Store the index if value matches
-      }
+  // Loop through the array and group indices by value
+  for (let i = 0; i < array.length; i++) {
+    let value = array[i];
+    if (!valueToIndices[value]) {
+      valueToIndices[value] = [];
+    }
+    valueToIndices[value].push(i);
+  }
+
+  // Find the group with the highest value and size >= 2
+  for (let value in valueToIndices) {
+    let indices = valueToIndices[value];
+    if (indices.length >= 1 && value > highestValue) {
+      highestValue = value; // Update the highest value
+      resultIndexes = indices; // Update result to this group's indices
     }
   }
-  
 
+  return resultIndexes;
 }
