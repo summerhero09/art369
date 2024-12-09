@@ -1,5 +1,5 @@
 var AppScriptUrl = 'https://script.google.com/macros/s/AKfycbw_NWEx6r7dUNFob6rtxFZlGGwGeRK1rD6fog5Wk7tipR3w7r3Xvu57VWhlJuB3tsKO/exec';
-
+var admin = false;
 // Function to retrieve a value from localStorage and check expiry
 function getWithExpiry(key) {
   const itemStr = localStorage.getItem(key);
@@ -48,6 +48,14 @@ function checkLoginStatus() {
         window.location.href = "password.html"; // Redirect to protected page
     }, 3000); // 2000 milliseconds = 2 seconds
   }
+  else if (currentUser === "Admin") {
+    // Handle admin login case
+    admin = true;
+    //alert(admin);
+
+    /*document.body.innerHTML = ""; // Clear the body*/
+    
+}
 }
 
 // Check login status when the page loads
@@ -60,6 +68,8 @@ function animationPause(){
     console.log("called");
   if (pressed == false)
   {
+    var button = document.getElementById("onoff");
+    button.innerHTML = "Animation On"
     notes.forEach(note => {
         note.style.animationPlayState = "paused";
         
@@ -68,6 +78,8 @@ function animationPause(){
   }
   else
   {
+    var button = document.getElementById("onoff");
+    button.innerHTML = "Animation Off"
     notes.forEach(note => {
       note.style.animationPlayState = "running";
       
@@ -121,6 +133,9 @@ function handleData(response) {
     var listItem = document.createElement("div");
     listItem.className = "entry";
     listItem.style.backgroundColor = randomColor();
+
+    var randomDelay = Math.random() * 2; // Random delay between 0 and 2 seconds
+    listItem.style.animationDelay = randomDelay + "s";
 
     // Iterate over the keys of the object
     Object.keys(item).forEach(function(key) {
@@ -201,9 +216,38 @@ function handleData(response) {
   
       playCat(messageText);
     }
-
-
     listItem.appendChild(playButton);
+
+    if (admin == true) {
+      
+      var pinButton = document.createElement("button");
+      pinButton.className = "pinbutton";
+      pinButton.textContent = "Pin";
+
+      pinButton.onclick = function() {
+        const timestampElement = listItem.querySelector('.Timestamp');
+
+        if (timestampElement) {
+          // Update the displayed timestamp
+          const newDate = new Date(2030, 0, 1); // January 1, 2030
+          timestampElement.textContent = newDate.toISOString(); // Set new timestamp in ISO format
+
+        // Optional: Update the item in the response array (if needed)
+          item['Timestamp'] = newDate.toISOString();
+
+        // Log the updated value for debugging
+        console.log('Timestamp updated to:', newDate.toISOString());
+    } else {
+        console.log('No timestamp element found in listItem.');
+    }
+
+      
+    } }
+
+    listItem.appendChild(pinButton);
+
+
+    
 
     if (time == true)
     {

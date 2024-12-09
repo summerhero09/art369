@@ -236,6 +236,7 @@ button{
 }*/
 .catbutton{
   background-color: #fefdfc;
+  border:white;
   position:absolute;
   width: 20vw;
   height: auto;
@@ -553,13 +554,16 @@ button{
 
 @keyframes idle {
   0% {
-    transform: rotate(5deg); /* Start by tilting to the right */
+    transform: rotate(0deg); /* Start by tilting to the right */
   }
-  50% {
+  25% {
     transform: rotate(-5deg); /* Tilt to the left at the halfway point */
   }
+  75% {
+    transform: rotate(5deg); /* Tilt to the left at the halfway point */
+  }
   100% {
-    transform: rotate(5deg); /* Return to the right at the end */
+    transform: rotate(0deg); /* Return to the right at the end */
   }
 }
 @keyframes bobbing {
