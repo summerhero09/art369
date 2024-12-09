@@ -17,6 +17,7 @@ function getWithExpiry(key) {
   return item.value;
 }
 
+
 // Function to check login status
 function checkLoginStatus() {
   const currentUser = getWithExpiry("loggedInUser");
@@ -51,12 +52,17 @@ function checkLoginStatus() {
   else if (currentUser === "Admin") {
     // Handle admin login case
     admin = true;
+    var title = document.getElementById("title");
+    title.innerHTML = "<span class='highlight'>Myra, here are your updates!"
+    var button = document.getElementById("pencil");
+    button.style.display = "none";
+    }
     //alert(admin);
 
     /*document.body.innerHTML = ""; // Clear the body*/
     
 }
-}
+
 
 // Check login status when the page loads
 window.onload = checkLoginStatus;
@@ -218,35 +224,7 @@ function handleData(response) {
     }
     listItem.appendChild(playButton);
 
-    if (admin == true) {
-      
-      var pinButton = document.createElement("button");
-      pinButton.className = "pinbutton";
-      pinButton.textContent = "Pin";
-
-      pinButton.onclick = function() {
-        const timestampElement = listItem.querySelector('.Timestamp');
-
-        if (timestampElement) {
-          // Update the displayed timestamp
-          const newDate = new Date(2030, 0, 1); // January 1, 2030
-          timestampElement.textContent = newDate.toISOString(); // Set new timestamp in ISO format
-
-        // Optional: Update the item in the response array (if needed)
-          item['Timestamp'] = newDate.toISOString();
-
-        // Log the updated value for debugging
-        console.log('Timestamp updated to:', newDate.toISOString());
-    } else {
-        console.log('No timestamp element found in listItem.');
-    }
-
-      
-    } }
-
-    listItem.appendChild(pinButton);
-
-
+    
     
 
     if (time == true)
@@ -328,16 +306,31 @@ function playCat(messageText){
 
   audio.play();
 
-  var images = [
-    "<img src='images/cat1.jpg' alt='Random Image'>",
-    "<img src='images/cat2.jpg' alt='Random Image'>",
-    "<img src='images/cat3.jpg' alt='Random Image'>",
-    "<img src='images/cat4.jpg' alt='Random Image'>",
-    "<img src='images/cat5.jpg' alt='Random Image'>",
-    "<img src='images/cat6.jpg' alt='Random Image'>",
-    "<img src='images/cat7.jpg' alt='Random Image'>",
-    "<img src='images/cat8.jpg' alt='Random Image'>",
-  ];
+  if (admin == false)
+  {
+
+    var images = [
+      "<img src='images/cat1.jpg' alt='Random Image'>",
+      "<img src='images/cat2.jpg' alt='Random Image'>",
+      "<img src='images/cat3.jpg' alt='Random Image'>",
+      "<img src='images/cat4.jpg' alt='Random Image'>",
+      "<img src='images/cat5.jpg' alt='Random Image'>",
+      "<img src='images/cat6.jpg' alt='Random Image'>",
+      "<img src='images/cat7.jpg' alt='Random Image'>",
+      "<img src='images/cat8.jpg' alt='Random Image'>",
+    ];
+  }
+  if (admin == true)
+  {
+    var images = [
+      "<img src='images/hondo1.jpg' alt='Random Image'>",
+      "<img src='images/hondo2.jpg' alt='Random Image'>",
+      "<img src='images/hondo3.jpg' alt='Random Image'>",
+      "<img src='images/hondo4.jpg' alt='Random Image'>",
+      "<img src='images/hondo5.jpg' alt='Random Image'>",
+      "<img src='images/hondo6.jpg' alt='Random Image'>",
+    ];
+  }
   
     function random_image() {
       return Math.floor(Math.random() * images.length);
@@ -384,6 +377,8 @@ function playCat(messageText){
   }
   show_random_image();
 }
+
+
 
 // Example usage:
 getData(AppScriptUrl);

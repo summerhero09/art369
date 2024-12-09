@@ -11,7 +11,15 @@ function doPost(e) {
 
   try {
     Logger.log(e); // the Google Script version of console.log see: Class Logger
-    record_data(e);
+    //record_data(e);
+
+    var action = e.parameters.action;
+
+    if (action === "updateTimestamp") {
+      return updateTimestamp(e); // Handle timestamp update
+    } else {
+      record_data(e); // Default behavior for form submissions
+    }
     
     // shorter name for form data
     var mailData = e.parameters;
@@ -35,6 +43,37 @@ function doPost(e) {
           .setMimeType(ContentService.MimeType.JSON);
   }
 }
+
+function updateTimestamp(e) {
+  var lock = LockService.getDocumentLock();
+  lock.waitLock(30000); // Prevent concurrent writes
+
+  try {
+    var doc = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = doc.getSheetByName("responses"); // Replace with your sheet name
+    var row = parseInt(e.parameters.row); // Row number to update (1-based index)
+    var newTimestamp = new Date(e.parameters.newTimestamp); // New timestamp
+
+    if (isNaN(row) || !newTimestamp) {
+      throw new Error("Invalid row or timestamp.");
+    }
+
+    // Update the timestamp column (column 1, adjust if needed)
+    sheet.getRange(row, 1).setValue(newTimestamp);
+
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "success", row: row, newTimestamp: newTimestamp })
+    ).setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    Logger.log(error);
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "error", error: error.message })
+    ).setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
 
 
 /**
