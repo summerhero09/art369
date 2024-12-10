@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Color Mixer</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gamja+Flower&family=Outfit:wght@100..900&family=Parkinsans:wght@300..800&family=Poppins&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+      body{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+
+        font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+        
+        margin: 10vh;
+
+        
+      }
+      #color1, #color2{
+        margin: 5vh;
+        width: 20vw;
+        height: 20vh;
+
+        padding: 1vh;
+      }
+      #color1:hover, #color2:hover{
+        opacity: 0.8;
+      }
+
+      #text{
+        font-size: 10vh;
+      }
+      
+    </style>
+  </head>
+
+<body>
+    <h1><label for="colors">Pick any two colors, any color! </label></h1>
+    <input type="color" value="#FFFFFF" id="color1">
+    <input type="color" value="#FFFFFF" id="color2">
+
+    <p id = 'text'> </p>
+
+    
+</body>
+
+<script>
+    document.getElementById("color1").onchange = mixColors;
+    document.getElementById("color2").onchange = mixColors;
+
+    function mixColors() {
+        var color1 = document.getElementById("color1").value;
+        var color2 = document.getElementById("color2").value;
+
+        function hexToRgb(hex) {
+            var bigint = parseInt(hex.slice(1), 16); // slice takes the # off the front, parseInt converts it into base 10
+            var r = (bigint >> 16) & 255; 
+            /*
+            Extracts the red component by shifting the integer 16 bits to the right 
+            and applying a mask to get the lowest 8 bits (255).
+            */
+            var g = (bigint >> 8) & 255;
+            var b = bigint & 255;
+            return [r, g, b];
+        }
+
+        // Convert RGB to hex
+        function rgbToHex(r, g, b) {
+            return (
+                "#" +
+                ((1 << 24) + (r << 16) + (g << 8) + b) // shift bitwise
+                    .toString(16) // convert to hexadecimal 
+                    .slice(1) // take off first digit
+                    .toUpperCase() // formatting
+            );
+        }
+
+        // Mix two RGB colors
+        var rgb1 = hexToRgb(color1);
+        var rgb2 = hexToRgb(color2);
+        var mixedColor = [
+            Math.floor((rgb1[0] + rgb2[0]) / 2),
+            Math.floor((rgb1[1] + rgb2[1]) / 2),
+            Math.floor((rgb1[2] + rgb2[2]) / 2),
+        ];
+
+        // Set the background color
+        document.body.style.background = rgbToHex(
+            mixedColor[0],
+            mixedColor[1],
+            mixedColor[2]
+        );
+        document.getElementById("text").innerText = "Color mixed!"
+
+    }
+</script>

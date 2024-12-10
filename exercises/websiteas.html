@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<title>Website As...</title>
+
+<head>
+    
+<style>
+
+    @keyframes scatter{
+        0%{
+            transform: translate(0%,0%);
+        }
+        50%{
+            transform: translate(100%,100%);
+            filter:blur(4x);
+        }
+        100%{
+            transform: translate(70%,0%);
+        }
+    }
+    @keyframes scatter1{
+        0%{
+            transform: translate(20%,0%);
+        }
+        50%{
+            transform: translate(80%,-30%);
+            transform: rotate(90deg);
+            
+        }
+        100%{
+            transform: translate(-60%,35%);
+        }
+    }
+    @keyframes scatter2{
+        0%{
+            transform: translate(30%,20%);
+        }
+        50%{
+            transform: translate(50%,80%);
+            filter: blur(4px);
+            transform: rotate(30deg);
+        }
+        100%{
+            transform: translate(23%,15%);
+        }
+    }
+    @keyframes scatter3{
+        0%{
+            transform: translate(-18%,34%);
+            transform: rotate(40deg);
+        }
+        50%{
+            transform: translate(-56%,32%);
+            transform: rotate(100deg);
+        }
+        100%{
+            transform: translate(13%,-78%);
+        }
+    }
+    @keyframes scatter4{
+        0%{
+            transform: translate(32%,-46%);
+            opacity: 0.9;
+            transform: rotate(45deg);
+        }
+        50%{
+            transform: translate(18%,93%);
+            opacity: 0.8;
+        }
+        100%{
+            transform: translate(-31%,65%);
+            opacity: 0.3;
+            transform: rotate(32deg);
+        }
+    }
+   
+    h1, h2, h3, h4, h5{
+        font-size: 10vh;
+        text-align: center;
+        position: relative;
+        animation-play-state: paused;
+        padding: 10vh;
+    }
+    h1:hover{
+        color: blue;
+        animation-play-state: running;
+        animation-name: scatter;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    h2:hover{
+        color: blue;
+        animation-play-state: running;
+        animation-name: scatter1;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    h3:hover{
+        color: red;
+        animation-play-state: running;
+        animation-name: scatter2;
+        animation-duration: 1.5s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+    }
+    h4:hover{
+        color: red;
+        animation-play-state: running;
+        animation-name: scatter3;
+        animation-duration: 1.5s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    h5:hover{
+        color: red;
+        animation-play-state: running;
+        animation-name: scatter4;
+        animation-duration: 1.5s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    @media screen and (max-width: 1000px)
+    {
+        h1, h2, h3, h4, h5{
+            font-size: 100px;
+            color: red;
+        }
+    
+    }
+    @media screen and (max-width: 600px)
+    {
+        h1, h2, h3, h4, h5{
+            font-size: 5vh;
+            color: green;
+        }
+    
+    }
+
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset = "UTF-8">
+
+
+</head>
+
+<body>
+
+    <h1>Coding as expelliarmus.</h1>
+
+    <h2>You write a word,</h2>
+    <h3>and everything changes.</h3> 
+    <h4>You write a word </h4> 
+    <h5>and the user loses their wand.</h5>
+
+
+</body>

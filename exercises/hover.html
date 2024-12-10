@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Ambient</title>
+
+<style>
+
+
+
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    
+    position: absolute;
+    top: 50vh;
+    left: 50vh;
+
+    animation-name: name;
+    animation-duration: 10s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    
+    color: rgb(22, 22, 46);
+
+    filter:blur(2px);
+
+}
+@keyframes passive{
+    0% {
+        
+        background-color: rgb(157, 156, 172);
+    }
+    25%{
+        background-color: rgb(80, 152, 194);
+    }
+    50% {
+        
+        background-color: rgb(98, 97, 149);
+    }
+    75%{
+        background-color: rgb(77, 100, 92);
+    }
+    100% {
+        background-color: rgb(157, 156, 172);
+    }
+    
+}
+
+@keyframes name{
+    0%{
+        top: 50%;
+    }
+    50%{
+        top: 0%;
+    }
+    100%{
+        top: 50%;
+    }
+}
+
+@keyframes shape{
+    0%{
+        left: 50%;
+        top: 50vh;
+        transform: scale(1.5);
+        
+    }
+    50%{
+        left: 10%;
+        transform: scale(0.5);
+        top: 50vh;
+        filter: blur(2px);
+    }
+    100%{
+        left: 50%;
+        transform: scale(1.5);
+        top: 50vh;
+    }
+}
+
+@keyframes shape2{
+    0%{
+        left: 50%;
+        top: 50vh;
+        transform: scale(1.5);
+    }
+    50%{
+        left: 90%;
+        transform: scale(0.5);
+        top: 50vh;
+        filter: blur(2px);
+    }
+    100%{
+        left: 50%;
+        transform: scale(1.5);
+        top: 50vh;
+    }
+}
+
+body{
+    animation-name: passive;
+    animation-duration: 10s; 
+
+    background-color: rgba(176, 175, 254, 1);
+    
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+
+    height: 100%;
+}
+
+.star_6 {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid rgb(109, 211, 208, 0.4);
+  position: absolute;
+  
+
+    
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+
+    
+}
+
+.star_6.first {
+        animation-name: shape;
+    }
+
+    /* Specific animation for the second star */
+    .star_6.second {
+        animation-name: shape2;
+    }
+
+.star_6:before {
+  content: "";
+    position: absolute;
+    top: 30px;
+    left: -50px;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid rgb(109, 211, 208, 0.4);
+     
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="star_6 first"></div>
+
+<div class="star_6 second"></div>
+
+
+
+</body>

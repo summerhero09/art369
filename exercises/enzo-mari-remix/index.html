@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enzo Mari redux</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <style>
+        img {
+            max-width: 100%;
+            cursor: pointer;
+            border-radius: 0%;
+            
+            position: absolute;
+            top: 0vh;
+            left: 0vw;
+            
+            animation-name:rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+    
+        }
+
+        img:hover {
+            filter: saturate(0%);
+            
+        }
+
+        @keyframes rotate
+        {
+            0%{
+                transform: rotate(90deg);
+            }
+            50%
+            {
+                transform: rotate(-90deg);
+            }
+            100%
+            {
+                transform: rotate(90deg);
+            }
+        }
+
+        div {
+            display: flex; /**/
+        }
+        .credit{
+            color:white;
+            text-align:center;
+            justify-content: center;
+            font-size: 10vh;
+        }
+    </style>
+</head>
+
+<body style="background-color: black">
+    <div class="credit">Various round friends</div>
+    
+    <script>
+        // define your "batch of images" in an array
+       var images = [
+                "<img src='images/clodsire1.jpg'>",
+                "<img src='images/clodsire2.jpg'>",
+                "<img src='images/clodsire3.jpg'>",
+                "<img src='images/clodsire4.jpg'>",
+                "<img src='images/clodsire5.jpg'>",
+                "<img src='images/clodsire6.jpg'>",
+                "<img src='images/clodsire7.jpg'>",
+                "<img src='images/clodsire8.jpg'>",
+            ]
+
+        // this function randomly picks an image from the batch
+        function random_image() {
+            return Math.floor(Math.random() * images.length);
+        }
+
+        // this function adds the randomly-selected image to the page
+        function add_image() {
+
+            // first you make a new div for the image.
+            var new_div = document.createElement('div');
+
+            // then you set the div's inner-HTML, ie its content, to the chosen img tag
+            new_div.innerHTML = images[random_image()];
+
+            var new_image = new_div.firstChild;
+
+            // these two lines pick a random width for the image.
+            // 300 is the MAX width, and 100 is the MIN width.
+            var random_width = Math.floor(Math.random() * (300 - 100 + 1) + 100);
+            var random_width_pixels = random_width + "px";
+
+            var random_position_top = Math.floor(Math.random() * (100-0));
+            var random_position_top_vh = random_position_top + "vh";
+
+            var random_position_left = Math.floor(Math.random() * (100-0));
+            var random_position_left_vw = random_position_top + "vw";
+
+            var random_border = Math.floor(Math.random() * (100 - 0 + 1) + 0);
+
+            var random_border_percent = random_border + "%";
+
+            // assign that random width to the new image
+            new_image.style.width = random_width_pixels;
+            new_image.style.borderRadius = random_border_percent;
+            
+            new_image.style.top = random_position_top_vh;
+            new_image.style.left = random_position_left_vw;
+
+            // add the new image to the document's body (so it's visible!)
+            document.body.prepend(new_image);
+
+            // last step! set up the click. 
+            // You want your image to 'listen' for clicks. When its clicked, it adds a new image.
+            new_image.addEventListener('click', add_image);
+        }
+
+        // so that the first image appears when the page load, run the function once.
+        add_image();
+    </script>
+</body>
+
+</html>
